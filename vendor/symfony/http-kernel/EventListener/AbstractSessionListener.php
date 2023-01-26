@@ -195,11 +195,10 @@ abstract class AbstractSessionListener implements EventSubscriberInterface, Rese
         }
 
         if ($autoCacheControl) {
-            $maxAge = $response->headers->hasCacheControlDirective('public') ? 0 : (int) $response->getMaxAge();
             $response
-                ->setExpires(new \DateTimeImmutable('+'.$maxAge.' seconds'))
+                ->setExpires(new \DateTime())
                 ->setPrivate()
-                ->setMaxAge($maxAge)
+                ->setMaxAge(0)
                 ->headers->addCacheControlDirective('must-revalidate');
         }
 
@@ -222,11 +221,11 @@ abstract class AbstractSessionListener implements EventSubscriberInterface, Rese
             return;
         }
 
-        if ($this->container && $this->container->has('session_collector')) {
+        if ($this->container?->has('session_collector')) {
             $this->container->get('session_collector')();
         }
 
-        if (!$requestStack = $this->container && $this->container->has('request_stack') ? $this->container->get('request_stack') : null) {
+        if (!$requestStack = $this->container?->has('request_stack') ? $this->container->get('request_stack') : null) {
             return;
         }
 
@@ -255,7 +254,7 @@ abstract class AbstractSessionListener implements EventSubscriberInterface, Rese
     {
         return [
             KernelEvents::REQUEST => ['onKernelRequest', 128],
-            // low priority to come after regular response listeners, but higher than StreamedResponseListener
+            // low priority to come after regular response listeners
             KernelEvents::RESPONSE => ['onKernelResponse', -1000],
         ];
     }
