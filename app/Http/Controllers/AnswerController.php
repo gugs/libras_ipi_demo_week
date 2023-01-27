@@ -76,14 +76,15 @@ class AnswerController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function show($id){
+    public function show($id)
+    {
         $result = Answer::find($id);
-        if ($result){
+        if ($result) {
             //no segundo parametro da função view estou passando o array informando o nome da variavel que será criada na view e o valor dela
             return view('results', [
-                'resultAnswers'=> $result
+                'resultAnswers' => $result
             ]);
-        } else{
+        } else {
             return view('results')->with('msg', 'Resultado não encontrado');
         }
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\Module;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,7 @@ class ModuleController extends Controller
      */
     public function create()
     {
-        //
+        return view('quiz.modules.create');
     }
 
     /**
@@ -37,7 +38,11 @@ class ModuleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Module::create([
+            'title' => $request->title,
+        ]);
+
+        return redirect()->route('modules.index');
     }
 
     /**
@@ -48,7 +53,8 @@ class ModuleController extends Controller
      */
     public function show(Module $module)
     {
-        //
+        $courses = $module->courses;
+        return view('quiz.modules.show', ['moduleCourses' => $courses]);
     }
 
     /**
@@ -60,17 +66,15 @@ class ModuleController extends Controller
     public function edit($id)
     {
         //
-        $modules = Module::where('id',$id)->first();
-        if(!empty($modules))
-        {
+        $modules = Module::where('id', $id)->first();
+        if (!empty($modules)) {
             //dd($modules);
             return view('quiz.modules.edit', compact('modules'));
-        }
-          else
-          {
+        } else {
             return redirect()->route('modules');
-          }
+        }
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -80,14 +84,12 @@ class ModuleController extends Controller
      */
     public function update(Request $request, Module $module)
     {
-        //
         $data = [
-            'title'=> $request->title,
-          ];
+            'title' => $request->title,
+        ];
 
-          $module->update($data);
-          return redirect()->route('modules.index');
-
+        $module->update($data);
+        return redirect()->route('modules.index');
     }
 
     /**
@@ -96,8 +98,40 @@ class ModuleController extends Controller
      * @param  \App\Models\Module  $module
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Module $module)
+    public function destroy($id)
     {
-        //
+        Module::where('id', $id)->delete();
+        return back();
+    }
+
+    public function editCourse($id)
+    {
+        $modules = Module::all();
+        $course = Course::where('id', $id)->first();
+
+        return view('quiz.modules.editCourse', compact('course', 'modules'));
+    }
+
+    public function updateCourse(Request $request, Course $course)
+    {
+        $data = [
+            'titulo' => $request->titulo,
+            'topico' => $request->topico,
+            'embed' => $request->embed,
+            'descricao' => $request->descricao,
+            'module_id' => $request->moduleId
+        ];
+
+        $course->update($data);
+        return redirect()->route('modules.index');
+    }
+
+    public function destroyCourse($id)
+    {
+
+        /* Course::where('id',$id)->delete();
+        return back(); */
+        Course::where('id', $id)->delete();
+        return back();
     }
 }

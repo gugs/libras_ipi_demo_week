@@ -3,9 +3,14 @@
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\ChoiceController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ModuleController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\UserController;
 use App\Models\Answer;
+use App\Models\Module;
+use App\Models\Question;
 use Illuminate\Support\Facades\Route;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -99,6 +104,15 @@ Route::get('meusCursos/{id}', [UserController::class, 'showCourses'])->name('cou
 
 Route::get('/support', function () { 
     return view('support');})->name('support');
+
+Route::get('editar-curso/{id}', [ModuleController::class, 'editCourse'])->name('editCourse');
+
+Route::put('salvar-curso', [ModuleController::class, 'updateCourse'])->name('updateCourse');
+Route::delete('excluir-curso', [ModuleController::class, 'destroyCourse'])->name('destroyCourse');
+
+Route::get('editar-pergunta/{id}', [QuizController::class, 'editQuestion'])->name('editQuestion');
+
+
 
 //quando tiver algum erro referente a rota, mostra na tela esse return
 Route::fallback(function () {

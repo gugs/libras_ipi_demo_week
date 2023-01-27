@@ -20,9 +20,6 @@ class QuestionController extends Controller
     public function index()
     {
         //
-        $questions = Question::all();
-
-        return view('quiz.questions.index', compact('questions'));
     }
 
     /**
@@ -32,8 +29,8 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        //
-        return view('quiz.questions.create');
+        $quizzes = Quiz::all();
+        return view('quiz.questions.create', compact('quizzes'));
     }
 
     /**
@@ -50,7 +47,7 @@ class QuestionController extends Controller
             'quiz_id' => $request->quiz,
         ]);
 
-        return redirect('questions');
+        return redirect()->route('quizzes.index');
     }
 
     /**
@@ -61,7 +58,8 @@ class QuestionController extends Controller
      */
     public function show(Question $question)
     {
-        //
+        $alternatives = $question->alternatives;
+        return view('quiz.alternatives.show', ['questionQAlternatives' => $alternatives]);
     }
 
     /**
@@ -70,11 +68,9 @@ class QuestionController extends Controller
      * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function edit(Question $question): View
+    public function edit(Question $question)
     {
-        $quizzes = Quiz::all()->pluck('title', 'id');
-
-        return view('quiz.questions.edit', compact('question', 'quizzes'));
+        //
     }
 
     /**
@@ -86,28 +82,28 @@ class QuestionController extends Controller
      */
 
 
-    public function update(Request $request, Question $question){
+    public function update(Request $request, Question $question)
+    {
         //dd($request);
         //dd($question);
         $data = [
-          'question'=> $request->question,
-          'quiz_id'=> $request->quiz,
+            'question' => $request->question,
+            'quiz_id' => $request->quizId,
         ];
-        // Course::where('id', $id)->update($data); //Para atualizar no banco , com o MOdel onde o id seja igual a variavel id, passa um update na variavel data
+
         $question->update($data);
-        return redirect()->route('questions');
-  
-      } 
-  
+        return redirect()->route('quizzes.index');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id){
-        //dd($id);
-        Question::where('id',$id)->delete();
-        return redirect()->route('questions.index');
-      }
+    public function destroy($id)
+    {
+        Question::where('id', $id)->delete();
+        return redirect()->route('quizzes.index');
+    }
 }

@@ -1,6 +1,5 @@
 <x-app-layout>
-
-        <section class="flex justify-center ">
+    <section class="flex justify-center ">
         <x-menu></x-menu>
         <div class="">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -23,22 +22,18 @@
                             <tbody class="bg-white divide-y divide-gray-200 ">
                                 @foreach ($alternatives as $alternative)
                                     <tr class="">
-                                        <th
-                                            class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                            {{ $alternative->question->quiz->title}} </th>
-                                        <th
-                                            class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                            {{ $alternative->question->question}}</th>
-                                        <th
-                                            class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
+                                        <th class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
+                                            {{ $alternative->question->quiz->title }} </th>
+                                        <th class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
+                                            {{ $alternative->question->question }}</th>
+                                        <th class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
                                             {{ $alternative->alternative }}</th>
-                                        <th
-                                            class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
+                                        <th class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
 
                                             <a class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 rounded"
                                                 href="{{ route('alternatives.edit', [$alternative->id]) }}">Editar</a>
 
-                                            <form action="{{ route('alternatives.destroy', [$alternative->id])}}"
+                                            <form action="{{ route('alternatives.destroy', [$alternative->id]) }}"
                                                 method="POST">
                                                 @csrf
                                                 @method('delete')
@@ -54,8 +49,5 @@
                 </div>
             </div>
         </div>
-
-
-
-        </section>
+    </section>
 </x-app-layout>
