@@ -2,7 +2,7 @@
     <div class="h-screen px-3 py-4 overflow-y-auto rounded bg-gray-50 dark:bg-gray-800">
         <ul class="space-y-2">
             <li>
-                <x-nav-menu-user {{-- :href="route('inscricao.show', [Auth::user()->id])" :active="request()->routeIs('inscricao.show', [Auth::user()->id])" --}}>
+                <x-nav-menu-user :href="route('inscricao.show', [Auth::user()->id])" :active="request()->routeIs('inscricao.show', [Auth::user()->id])">
                     <svg aria-hidden="true"
                         class="fill-blue-600 m-3 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

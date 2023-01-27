@@ -51,9 +51,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::delete('/{id}', [CourseController::class, 'destroy'])->where('id', '[0-9]+')->name('course-destroy');
 });
 
-Route::resource('/dashboardd', SubscriptionController::class);
-
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -102,8 +99,9 @@ Route::get('generatePDF', [UserController::class, 'generatePDF'])->name('user.pd
 
 Route::get('meusCursos/{id}', [UserController::class, 'showCourses'])->name('coursesUser');
 
-Route::get('/support', function () { 
-    return view('support');})->name('support');
+Route::get('/support', function () {
+    return view('support');
+})->name('support');
 
 Route::get('editar-curso/{id}', [ModuleController::class, 'editCourse'])->name('editCourse');
 
@@ -112,6 +110,8 @@ Route::delete('excluir-curso', [ModuleController::class, 'destroyCourse'])->name
 
 Route::get('editar-pergunta/{id}', [QuizController::class, 'editQuestion'])->name('editQuestion');
 
+
+Route::resource('/inscricao', SubscriptionController::class);
 
 
 //quando tiver algum erro referente a rota, mostra na tela esse return
