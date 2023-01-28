@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Curso;
 use App\Models\Module;
+use App\Models\User;
 use Illuminate\Console\Scheduling\Event;
 use Illuminate\Http\Request;
 
@@ -37,9 +38,9 @@ class CourseController extends Controller
 
   public function show(Module $module)
   {
-    //
+    $user = auth()->user();
     $courses = $module->courses;
-    return view('course', ['moduleCourses' => $courses]);
+    return view('course', ['moduleCourses' => $courses, 'user'=> $user]);
   }
 
 

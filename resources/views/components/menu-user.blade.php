@@ -76,7 +76,7 @@
             </li>
         </ul>
         @if (Auth::user()->is_admin)
-            <ul class="pt-4 mt-4 space-y-2 border-t-2 border-gray-200 dark:border-gray-700">
+        <ul class="pt-4 mt-4 space-y-2 border-t-2 border-gray-200 dark:border-gray-700">
                 <li class="">
                     <x-nav-menu-user>
                         <svg aria-hidden="true"
@@ -113,7 +113,7 @@
                         {{ __('Gerenciador de Questionários') }}
                     </x-nav-menu-user>
                 </li>
-            </ul>
+        </ul>
         @endif
     </div>
 </aside>
