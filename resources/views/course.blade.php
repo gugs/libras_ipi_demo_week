@@ -45,22 +45,21 @@
                                 <h2 class="text-4xl font-extrabold dark:text-white h-14 flex-initial w-96 ">Curso:
                                     {{ $courses->titulo }}
                                 </h2>
-                                <a href="#"
-                                    class="  inline-flex justify-center items-center  w-64  mx-2 text-2xl font-medium text-center text-white bg-blue-700 rounded-full hover:bg-blue-800  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    Próximo
-                                    <svg aria-hidden="true" class="w-12 h-12 px-4  ml-2 -mr-1" fill="currentColor"
-                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </a>
+                                
                             </div>
                             <iframe class=" w-full h-full {{-- w-full aspect-video --}}" src="{{ $courses->embed }}"
                                 title="{{ $courses->titulo }}" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen></iframe>
                         </div>
+                        <form method="POST" action="{{ route('inscricaoCurso.store') }}" class="flex justify-end">
+                            @csrf
+                            <input type="hidden" name="courseId" value="{{ $courses->id }}">
+                            <button type="submit"
+                                class="w-28 inline-flex items-center px-3 py-2 mx-2 text-lg text-center font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                Concluído    
+                            </button>
+                        </form>
 
                         {{-- Publicar comentário --}}
                         <div class=" ">

@@ -108,18 +108,19 @@ class UserController extends Controller
 
     public function showCertificate($id)
     {
-        $courses = Course::all();
-        //#user = User::where('id', $id)->first();
+        $certificates = auth()->user()->subscriptionsCourses;
+        
         if (!$user = User::find($id)) //if para caso o usuário n exista
             return back();
 
-        return view('users.certificates', compact('user', 'courses'));
+        return view('users.certificates', compact('user', 'certificates'));
     }
 
 
     public function generatePDF()
     {
-        $user = User::all();
+        /* $user = User::all(); */
+        $user = Auth::user()->name;
         $pdf = PDF::loadView('users.certificate', compact('user'))->setPaper('a4', 'landscape');
 
         return $pdf->stream('certificado.pdf');

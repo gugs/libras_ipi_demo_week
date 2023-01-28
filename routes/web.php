@@ -7,12 +7,14 @@ use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\SubscriptionCourseController;
 use App\Http\Controllers\UserController;
 use App\Models\Answer;
 use App\Models\Module;
 use App\Models\Question;
 use Illuminate\Support\Facades\Route;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Database\Factories\SubscriptionCourseFactory;
 
 /*
 |--------------------------------------------------------------------------
@@ -110,9 +112,8 @@ Route::delete('excluir-curso', [ModuleController::class, 'destroyCourse'])->name
 
 Route::get('editar-pergunta/{id}', [QuizController::class, 'editQuestion'])->name('editQuestion');
 
-
 Route::resource('/inscricao', SubscriptionController::class);
-
+Route::resource('/inscricaoCurso', SubscriptionCourseController::class);
 
 //quando tiver algum erro referente a rota, mostra na tela esse return
 Route::fallback(function () {

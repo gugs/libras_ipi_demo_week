@@ -35,7 +35,15 @@ class SubscriptionCourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $userId = auth()->user()->id;
+        $courseId = $request->input('courseId');
+
+        SubscriptionCourse::create([
+            'user_id' => $userId,
+            'course_id' => $courseId,
+        ]);
+
+        return back();
     }
 
     /**

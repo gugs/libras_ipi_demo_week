@@ -8,17 +8,20 @@
             <div class="flex justify-center max-screen h-screen mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white h-4/5 w-4/6 overflow-hidden shadow-sm sm:rounded-lg my-20 py-8  ">
                     <div class=" sm:p-0 border-gray-200">
-                        <h1 class="mb-2">Meus Certificados - {{ $user->name }}</h1>
+                        <h4
+                        class="py-3 text-2xl flex justify-center items-center font-bold text-gray-700 dark:text-white border-b">
+                        Meus certificados - {{$user->name}}
+                    </h4>
                         <div>
                             <div>
                                 <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1  gap-2">
 
-                                    @foreach ($courses as $course)
+                                    @foreach ($certificates as $certificate)
                                         <div class="p-5 flex flex-row justify-center border-b mx-9 border-black/50 w-fu">
                                             <div class="w-96 ">
                                                 <a href="#">
                                                     <h6 class="mb-1 text-lg font-bold text-gray-900 dark:text-white">
-                                                        {{ $course->titulo }}
+                                                        {{ $certificate->course->titulo }}
                                                     </h6>
                                                 </a>
                                                 <p class="mb-3 font-ligth  text-gray-700 dark:text-gray-400">
