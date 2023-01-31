@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\ChoiceController;
 use App\Http\Controllers\CourseController;
@@ -113,6 +114,8 @@ Route::get('editar-pergunta/{id}', [QuizController::class, 'editQuestion'])->nam
 
 Route::resource('/inscricao', SubscriptionController::class);
 Route::resource('/inscricaoCurso', SubscriptionCourseController::class);
+
+Route::resource('admin', AdminController::class);
 
 //quando tiver algum erro referente a rota, mostra na tela esse return
 Route::fallback(function () {

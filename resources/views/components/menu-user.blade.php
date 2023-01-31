@@ -78,7 +78,7 @@
         @if (Auth::user()->is_admin)
         <ul class="pt-4 mt-4 space-y-2 border-t-2 border-gray-200 dark:border-gray-700">
                 <li class="">
-                    <x-nav-menu-user>
+                    <x-nav-menu-user :href="route('admin.index')" :active="request()->routeIs(route('admin.index'))">
                         <svg aria-hidden="true"
                             class="fill-blue-600 m-3 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                             fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
