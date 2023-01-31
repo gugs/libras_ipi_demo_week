@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Module;
 use App\Models\Quiz;
 use App\Models\Subscription;
 use App\Models\User;
@@ -60,12 +61,17 @@ class SubscriptionController extends Controller
      */
     public function show($id)
     {
+        $modules = Module::all();
         $quizzes = Quiz::all();
         $courses = Course::all();
         if (!$user = User::find($id)) //if para caso o usuário n exista
             return back();
 
-        return view('teste', compact('user', 'courses', 'quizzes'));
+        $progressModules = round(($user->subscriptions->count()/$modules->count())*100,1);
+        $progressCourses = round(($user->subscriptionsCourses->count()/ $courses->count())* 100,1);
+        $progressQuizzes = round(($user->subscriptionsQuizzes->count()/$quizzes->count())*100,1);
+        $totalProgress = round(($progressModules + $progressCourses + $progressQuizzes)/3,1);
+        return view('teste', compact('user', 'courses', 'quizzes','progressModules', 'progressCourses', 'progressQuizzes', 'totalProgress'));
     }
 
     /**

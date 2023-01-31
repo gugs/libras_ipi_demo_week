@@ -16,8 +16,19 @@
                                     <div
                                         class=" h-40 w-40 flex justify-center items-center rounded-full border border-black/50">
                                         <h1
-                                            class="  font-extrabold leading-none tracking-tigh md:text-5xl lg:text-6xl text-blue-600 dark:text-blue-500">
-                                            {{ $user->subscriptionsCourses->count() }}/{{ $courses->count() }}</h1>
+                                            class="font-extrabold leading-none tracking-tigh md:text-5xl lg:text-5xl text-blue-600 dark:text-blue-500">
+                                        {{$progressModules}}%</h1>
+                                    </div>
+                                    <h6
+                                        class="flex justify-center pt-2 text-lg font-bold text-gray-900 dark:text-white ">
+                                        Módulos</h6>
+                                </div>
+                                <div class="h-48 w-full ">
+                                    <div
+                                        class=" h-40 w-40 flex justify-center items-center rounded-full border border-black/50">
+                                        <h1
+                                            class="  font-extrabold leading-none tracking-tigh md:text-5xl lg:text-5xl text-blue-600 dark:text-blue-500">
+                                            {{ $progressCourses}}%</h1>
                                     </div>
                                     <h6
                                         class="flex justify-center pt-2 text-lg font-bold text-gray-900 dark:text-white ">
@@ -27,8 +38,8 @@
                                     <div
                                         class="h-40 w-40 flex justify-center items-center rounded-full border border-black/50">
                                         <h1
-                                            class="font-extrabold leading-none tracking-tigh md:text-5xl lg:text-6xl text-blue-600 dark:text-blue-500">
-                                            {{ $user->subscriptionsQuizzes->count() }}/{{ $quizzes->count() }}</h1>
+                                            class="font-extrabold leading-none tracking-tigh md:text-5xl lg:text-5xl text-blue-600 dark:text-blue-500">
+                                            {{$progressQuizzes}}%</h1>
                                     </div>
                                     <h6
                                         class="flex justify-center pt-2 text-lg font-bold text-gray-900 dark:text-white ">
@@ -38,23 +49,12 @@
                                     <div
                                         class=" h-40 w-40 flex justify-center items-center rounded-full border border-black/50">
                                         <h1
-                                            class="font-extrabold leading-none tracking-tigh md:text-5xl lg:text-6xl text-blue-600 dark:text-blue-500">
-                                            x/x</h1>
+                                            class="font-extrabold leading-none tracking-tigh md:text-5xl lg:text-5xl text-blue-600 dark:text-blue-500">
+                                            {{$totalProgress}}%</h1>
                                     </div>
                                     <h6
                                         class="flex justify-center pt-2 text-lg font-bold text-gray-900 dark:text-white ">
-                                        Progresso</h6>
-                                </div>
-                                <div class="h-48 w-full ">
-                                    <div
-                                        class=" h-40 w-40 flex justify-center items-center rounded-full border border-black/50">
-                                        <h1
-                                            class="font-extrabold leading-none tracking-tigh md:text-5xl lg:text-6xl text-blue-600 dark:text-blue-500">
-                                           x/x</h1>
-                                    </div>
-                                    <h6
-                                        class="flex justify-center pt-2 text-lg font-bold text-gray-900 dark:text-white ">
-                                        ...</h6>
+                                        Progresso Total</h6>
                                 </div>
                                 
                             </div>
