@@ -6,12 +6,9 @@
         </div>
         <div class="h-screen w-full">
             <div class="flex justify-center max-screen h-screen mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white h-4/5 w-4/6 overflow-hidden shadow-sm sm:rounded-lg my-20 py-8  ">
+                <div class="bg-white h-4/5 w-4/6 overflow-hidden shadow-sm sm:rounded-lg my-20   ">
                     <div class=" sm:p-0 border-gray-200">
-                        <h4
-                        class="py-3 text-2xl flex justify-center items-center font-bold text-gray-700 dark:text-white border-b">
-                        Meus certificados - {{$user->name}}
-                    </h4>
+                        <x-sub-title>Meus Certificados - {{ $user->name }}</x-sub-title>
                         <div>
                             <div>
                                 <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1  gap-2">

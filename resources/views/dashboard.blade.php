@@ -4,9 +4,10 @@
             <x-menu-user></x-menu-user>
 
         </div>
-        <div class="h-screen w-full">
-            <div class="p-20">
-                <div class=" grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4">
+        <div class="h-screen w-full ">
+            <div class="flex flex-col justify-center">
+                <x-primary-title>Cátalogo de Cursos</x-primary-title>
+                <div class=" grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 justify-items-center">
                     @foreach ($modules as $module)
                         <div
                             class="max-w-sm bg-white border border-gray-200 rounded-lg h-48 w-72 shadow-md dark:bg-gray-800 dark:border-gray-700">

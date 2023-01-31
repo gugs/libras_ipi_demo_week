@@ -4,9 +4,8 @@
             <x-menu-user></x-menu-user>
         </div>
         <div class="h-screen w-full">
-            <div class="p-20 border-b flex flex-col h-1/2">
-                <h4 class="pb-3 text-2xl font-bold text-gray-700 dark:text-white">
-                    Cursos em andamentos</h4>
+            <div class="px-20 border-b flex flex-col h-1/2">
+                <x-primary-title>Cursos em andamentos</x-primary-title>
                 <div class=" grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4">
                     @foreach ($user->subscriptions as $item)
                         @if ($item->completed != 0)
@@ -18,8 +17,7 @@
                                             {{ $item->module->title }}
                                         </h6>
                                     </a>
-                                    <p
-                                        class="mb-3 font-ligth border-b border-black/50 text-gray-700 dark:text-gray-400">
+                                    <p class="mb-3 font-ligth border-b border-black/50 text-gray-700 dark:text-gray-400">
                                         Neste
                                         curso você vai conhencer as principais girias no mundo de libras....</p>
                                     <div class="flex flex-row justify-center">
@@ -38,9 +36,8 @@
                     @endforeach
                 </div>
             </div>
-            <div class="p-20 flex flex-col w-1/2">
-                <h4 class="pb-3 text-2xl font-bold text-gray-700 dark:text-white">
-                    Cursos concluídos</h4>
+            <div class="px-20 flex flex-col h-full border">
+                <x-primary-title>Cursos concluídos</x-primary-title>
                 <div class=" grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4">
                     @foreach ($user->subscriptions as $item)
                         @if ($item->completed == 0)

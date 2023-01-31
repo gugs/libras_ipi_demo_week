@@ -5,13 +5,10 @@
 
         </div>
         <div class="h-screen w-full ">
-            <div class="flex justify-center max-screen h-screen mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white h-5/6 w-4/6 overflow-hidden shadow-sm sm:rounded-lg my-20 py-8 px-24 ">
-                    <div class="p-6 sm:p-0 border-gray-200">
-                        <h4
-                            class="py-3 text-2xl flex justify-center items-center font-bold text-gray-700 dark:text-white border-b">
-                            Meus Dados - {{ $user->name }}
-                        </h4>
+            <div class="flex justify-center max-screen h-screen mx-auto sm:px-6 lg:px-">
+                <div class="bg-white h-5/6 w-4/6 overflow-hidden shadow-sm sm:rounded-lg my-20  px-24 ">
+                    <div class="">
+                        <x-sub-title>Meus Dados - {{ $user->name }}</x-sub-title>   
                         <form action="{{ route('users.update', $user->id) }}" method="post" enctype="multipart/form-data">
                             @method('PUT')
                             @csrf

@@ -10,8 +10,7 @@
                     {{-- Quero fazer um circulo de progresso --}}
                     <div class="   py-5  ">
                         <div class="h-96 w-full bg-white rounded-lg flex flex-col justify-center items-center">
-                            <h4 class="pb-3 text-2xl font-bold text-gray-700 dark:text-white">
-                                Resumo das atividades</h4>
+                            <x-sub-title>Resumo das atividades</x-sub-title>
                             <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-36 content-center">
                                 <div class="h-48 w-full ">
                                     <div
@@ -65,11 +64,7 @@
                     <div class="h-96 w-full flex flex-row justify-between ">
                         <div class=" border-gray-200  h-full w-1/2 flex  ">
                             <div class="bg-white h-full w-full pr-2 rounded-lg">
-                                <h4
-                                    class="py-3 text-2xl flex justify-center items-center font-bold text-gray-700 dark:text-white border-b">
-                                    Cursos em
-                                    Andamento
-                                </h4>
+                                <x-sub-title>Cursos em Andamentos</x-sub-title>
                                 <ul class="">
                                     @forelse ($user->subscriptions as $item)
                                         <div
@@ -94,9 +89,7 @@
                         </div>
                         <div class="  h-full w-1/2 pl-2">
                             <div class="bg-white rounded-lg h-full w-full">
-                                <h4
-                                    class="py-3 text-2xl flex justify-center items-center font-bold text-gray-700 dark:text-white border-b">
-                                    Meus Certificados</h4>
+                                <x-sub-title>Meus certificados</x-sub-title>
                                 <ul class=" grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1  gap-x-8">
                                     @forelse ($user->subscriptionsCourses as $item)
                                         <div
