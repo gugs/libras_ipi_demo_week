@@ -16,7 +16,8 @@
         </a>
     
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex justify-center ">
+            <x-primary-title>Parabéns! Você completou o teste!</x-primary-title>
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex justify-center ">              
                 <div class=" overflow-hidden shadow-sm sm:rounded-lg w-4/5  bg-white ">
                     <div class="p-6 ">
                         <section class="flex flex-col justify-center items-center  ">
@@ -25,10 +26,9 @@
                             @else
                                 {{-- senão, mostra os daddos --}}
                                 <div x-data="{ open: false }" class="flex flex-col items-center">
-                                    <h2 class="text-lg font-semibold">Parabéns! Você completou o teste!</h2>
-                                    <h3 class="mb-8 text-lg">Você acertou <b> X </b> de <b>
+                                    <h3 class="mb-8 text-2xl">Você acertou <b> X </b> de <b>
                                             {{ sizeof($resultAnswers->quiz->questions) }} </b></h3>
-                                    <p><strong>Pontuação:</strong> {{ $resultAnswers->score }} </p>
+                                    <p class="text-2xl">Pontuação:  {{ $resultAnswers->score }} </p>
                                     <a href="">
                                         <x-text-input type="submit" name="submit" value="Refazer Quiz"
                                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded cursor-pointer  mb-4 mr-4" />

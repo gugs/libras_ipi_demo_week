@@ -19,7 +19,7 @@
                                     </h6>
                                     @if ($module['isSubscribedModule'])
                                         <p
-                                            class="text-blue-700 text-center border border-blue-700/50 rounded-full px-2 ">
+                                            class="flex items-center text-blue-700 text-center border border-blue-700/50 rounded-full px-2 ">
                                             inscrito</p>
                                     @endif
                                 </div>

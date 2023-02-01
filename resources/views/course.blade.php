@@ -5,7 +5,7 @@
      --}}
     <section x-data="{ open: {{ $moduleCourses[0]->id ?? 'false' }} }" class="container-fluid flex flex-row">
         <div
-            class="w-2/6 h-screen flex flex-col justify-start items-center pt-6 overflow-y-auto rounded text-neutral-50 bg-sky-500">
+            class="w-96 h-screen flex flex-col justify-start items-center pt-6 overflow-y-auto rounded text-neutral-50 bg-sky-500">
             <div class=" h-16 overflow-hidden shadow-sm ">
                 <div class=" border-gray-200">
                     <a href="{{ route('dashboard') }}"
@@ -25,7 +25,7 @@
                     <li>
                         <div x-on:click="open = {{ $courses->id }}"
                             class=" h-16  w-screen bg-black/20  hover:bg-blue-500 text-center rounded-md cursor-pointer border-b-2">
-                            <h4 class="text-2xl font-bold dark:text-white">{{ $courses->titulo }}</h4>
+                            <h4 class="text-2xl text-center font-bold dark:text-white">{{ $courses->titulo }}</h4>
                         </div>
                     </li>
                 @endforeach
@@ -44,23 +44,21 @@
                         class=" h-screen flex flex-row justify-center   bg-gray-50 ">
                         <div class=" flex flex-col spcace-y-4 items-center  w-full  pb-5">
 
-                            <div class="flex flex-row w-full justify-between py-6 ">
-                                <h2 class="text-4xl font-extrabold dark:text-white h-14 flex-initial w-96 ">Curso:
-                                    {{ $courses->titulo }}
-                                </h2>
+                            <div class="flex flex-row w-full justify-between pl-8 ">                           
+                                <x-sub-title> Curso: {{ $courses->titulo }}</x-sub-title>
+                                <form method="POST" action="{{ route('inscricaoCurso.store') }}" class="flex justify-end pt-4 pr-7">
+                                    @csrf
+                                    <input type="hidden" name="courseId" value="{{ $courses->id }}">
+                                    <button type="submit"
+                                        class="w-28  h-12 inline-flex items-center px-3 py-2 mx-2 text-lg text-center font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        Concluído    
+                                    </button>
+                                </form>
                             </div>
                             <iframe class=" w-full aspect-video px-8 pb-6" src="{{ $courses->embed }}"
                                 title="{{ $courses->titulo }}" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen></iframe>
-                                <form method="POST" action="{{ route('inscricaoCurso.store') }}" class="flex justify-end">
-                                    @csrf
-                                    <input type="hidden" name="courseId" value="{{ $courses->id }}">
-                                    <button type="submit"
-                                        class="w-28 inline-flex items-center px-3 py-2 mx-2 text-lg text-center font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                        Concluído    
-                                    </button>
-                                </form>
                         </div>
 
 
@@ -137,9 +135,6 @@
                                                         </div>
                                                     @endif
                                                 </div>
-                                            <div>
-                                                <p>Responder</p>
-                                            </div>
                                         </div>
                                     </li>
                                 @empty
@@ -161,7 +156,7 @@
                                     <div class="flex justify-end px-3 py-2 ">
                                         <button type="submit"
                                             class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
-                                            Publicar postagem
+                                            Publicar comentário
                                         </button>
                                     </div>
                                 </form>
@@ -170,10 +165,6 @@
                     </div>
                 @endforeach
             </div>
-
         </div>
-
-        {{-- Comentário lateral --}}
-
     </section>
 </x-app-layout>
