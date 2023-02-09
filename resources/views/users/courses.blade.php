@@ -5,7 +5,7 @@
         </div>
         <div class="h-screen w-full">
             <div class="px-20 border-b flex flex-col h-1/2">
-                <x-primary-title>Cursos em andamentos</x-primary-title>
+                <x-primary-title>Módulos em andamentos</x-primary-title>
                 <div class=" grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4">
                     @foreach ($user->subscriptions as $item)
                         @if ($item->completed != 0)
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="px-20 flex flex-col h-full border">
-                <x-primary-title>Cursos concluídos</x-primary-title>
+                <x-primary-title>Módulos concluídos</x-primary-title>
                 <div class=" grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4">
                     @foreach ($user->subscriptions as $item)
                         @if ($item->completed == 0)

@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="bg-sky-400 min-h-screen">
         <header class="flex justify-between items-center bg-white p-5 h-[100px]">
-            <h1 class="text-sky-400 text-3xl ml-10 font-bold">Logo</h1>  
+            <img src="{{ asset('images/logo2.png') }}"  class="h-44 w-40 pl-4"/>
             @if (Route::has('login'))
                 <nav class="mr-10 p font-semibold">
                     @auth
@@ -22,7 +22,8 @@
                     
                     <a class="inline-block mt-5 rounded-xl text-white bg-[#21DF40] p-2 px-14 hover:bg-emerald-600 font-semibold" href="">Embarque</a>
                 </div>
-                <div class="bg-slate-100 w-80 h-60 rounded-xl">AQUI TERA UM CARD</div>
+                {{-- <div class="bg-slate-100 w-80 h-60 rounded-xl">AQUI TERA UM CARD</div> --}}
+                <img src="{{ asset('images/logo.png') }}" />
             </div>
         </main>
 

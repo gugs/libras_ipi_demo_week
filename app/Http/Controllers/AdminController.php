@@ -27,4 +27,9 @@ class AdminController extends Controller
         
         return view('admin.index', compact('users', 'frequentUsers', 'modules', 'frequentModules', 'courses', 'quizzes'));
     }
+
+    public function showUsers(){
+        $users = User::all();
+        return view('admin.users', compact('users'));
+    }
 }

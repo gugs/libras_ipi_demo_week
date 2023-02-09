@@ -97,7 +97,7 @@ Route::resource('comments', \App\Http\Controllers\CommentController::class);
 Route::resource('users', UserController::class);
 
 Route::get('certificados/{id}', [UserController::class, 'showCertificate'])->name('certificates');
-Route::get('generatePDF', [UserController::class, 'generatePDF'])->name('user.pdf');
+Route::get('generatePDF/{id}', [UserController::class, 'generatePDF'])->name('user.pdf');
 
 Route::get('meusCursos/{id}', [UserController::class, 'showCourses'])->name('coursesUser');
 
@@ -116,6 +116,8 @@ Route::resource('/inscricao', SubscriptionController::class);
 Route::resource('/inscricaoCurso', SubscriptionCourseController::class);
 
 Route::resource('admin', AdminController::class);
+Route::get('/users', [AdminController::class, 'showUsers'])->name('users');
+
 
 //quando tiver algum erro referente a rota, mostra na tela esse return
 Route::fallback(function () {

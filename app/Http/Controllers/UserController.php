@@ -117,12 +117,12 @@ class UserController extends Controller
     }
 
 
-    public function generatePDF()
+    public function generatePDF($id)
     {
         /* $user = User::all(); */
         $user = Auth::user()->name;
-        $pdf = PDF::loadView('users.certificate', compact('user'))->setPaper('a4', 'landscape');
-
+        $course = Course::where('id', $id)->first();
+        $pdf = PDF::loadView('users.certificate', compact('user', 'course'))->setPaper('a4', 'landscape');
         return $pdf->stream('certificado.pdf');
     }
 

@@ -11,12 +11,12 @@
                     <div class="   py-5  ">
                         <div class="h-96 w-full bg-white rounded-lg flex flex-col justify-center items-center">
                             <x-sub-title>Resumo das atividades</x-sub-title>
-                            <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-36 content-center">
+                            <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-36 content-center pt-7">
                                 <div class="h-48 w-full ">
                                     <div
-                                        class=" h-40 w-40 flex justify-center items-center rounded-full border border-black/50">
+                                        class=" h-40 w-40 flex justify-center items-center rounded-full  bg-gradient-to-r from-cyan-500 to-blue-500">
                                         <h1
-                                            class="font-extrabold leading-none tracking-tigh md:text-5xl lg:text-5xl text-blue-600 dark:text-blue-500">
+                                            class="font-extrabold leading-none tracking-tigh md:text-5xl lg:text-5xl text-white">
                                         {{$progressModules}}%</h1>
                                     </div>
                                     <h6
@@ -25,9 +25,9 @@
                                 </div>
                                 <div class="h-48 w-full ">
                                     <div
-                                        class=" h-40 w-40 flex justify-center items-center rounded-full border border-black/50">
+                                        class=" h-40 w-40 flex justify-center items-center rounded-full  bg-gradient-to-r from-cyan-500 to-blue-500">
                                         <h1
-                                            class="  font-extrabold leading-none tracking-tigh md:text-5xl lg:text-5xl text-blue-600 dark:text-blue-500">
+                                            class="  font-extrabold leading-none tracking-tigh md:text-5xl lg:text-5xl text-white">
                                             {{ $progressCourses}}%</h1>
                                     </div>
                                     <h6
@@ -36,9 +36,9 @@
                                 </div>
                                 <div class="h-48 w-full ">
                                     <div
-                                        class="h-40 w-40 flex justify-center items-center rounded-full border border-black/50">
+                                        class="h-40 w-40 flex justify-center items-center rounded-full  bg-gradient-to-r from-cyan-500 to-blue-500">
                                         <h1
-                                            class="font-extrabold leading-none tracking-tigh md:text-5xl lg:text-5xl text-blue-600 dark:text-blue-500">
+                                            class="font-extrabold leading-none tracking-tigh md:text-5xl lg:text-5xl text-white">
                                             {{$progressQuizzes}}%</h1>
                                     </div>
                                     <h6
@@ -47,9 +47,9 @@
                                 </div>
                                 <div class="h-48 w-full ">
                                     <div
-                                        class=" h-40 w-40 flex justify-center items-center rounded-full border border-black/50">
+                                        class=" h-40 w-40 flex justify-center items-center rounded-full  bg-gradient-to-r from-cyan-500 to-blue-500">
                                         <h1
-                                            class="font-extrabold leading-none tracking-tigh md:text-5xl lg:text-5xl text-blue-600 dark:text-blue-500">
+                                            class="font-extrabold leading-none tracking-tigh md:text-5xl lg:text-5xl text-white">
                                             {{$totalProgress}}%</h1>
                                     </div>
                                     <h6
@@ -95,7 +95,7 @@
                                         <div
                                             class=" font-ligth flex flex-row justify-between border-b border-black/50 text-gray-800 dark:text-gray-400">
                                             <li class="px-4">{{ $item->course->titulo }}</li>
-                                            <a href="{{ route('user.pdf') }}"
+                                            <a href="{{ route('user.pdf', [$item->course->id]) }}"
                                                 class="inline-flex items-center justify-center px-5 py-3  ">
 
                                                 <svg class="w-6 h-6 fill-blue-600" xmlns="http://www.w3.org/2000/svg"

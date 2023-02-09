@@ -5,7 +5,8 @@
             <div class="flex">
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <h1 class="text-sky-400 text-3xl ml-10 font-bold">Libras</h1>
+                       {{--  <h1 class="text-sky-400 text-3xl ml-10 font-bold">Libras</h1> --}}
+                        <img src="{{ asset('images/logo2.png') }}"  class="h-44 w-40 pl-4"/>
                     </a>
                 </div>
 
@@ -37,13 +38,9 @@
                             <x-dropdown-link :href="route('logout')"
                                 onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Sair') }}
                             </x-dropdown-link>
                         </form>
-                        <x-dropdown-link>
-                            {{ __('Meu Perfil') }}
-                        </x-dropdown-link>
-
                     </x-slot>
                 </x-dropdown>
             </div>
